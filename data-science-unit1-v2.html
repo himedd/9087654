@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>مراجعة الوحدة الأولى – علم البيانات</title>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--ink:#1c1c3a;--y:#ffd93d;--pk:#ff8fab;--bl:#7cc8ff;--gr:#86e3a3;--or:#ffb36b;--pu:#c3a6ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{height:100%;scroll-behavior:smooth;scroll-padding-top:calc(74px + env(safe-area-inset-top,0px))}
+body{margin:0;background:#fff radial-gradient(#d9dcf0 1.3px,transparent 1.3px) 0 0/22px 22px;color:var(--ink);font-family:Tajawal,Tahoma,sans-serif;line-height:1.85;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#fff}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:#fff;border-bottom:3px solid var(--ink);display:flex;gap:8px;padding:10px 12px;overflow-x:auto;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:800;font-size:14px;padding:4px 14px;border:2.5px solid var(--ink);border-radius:20px 8px 18px 8px;background:#fff;transition:.25s}
+nav a:hover,nav a.on{background:var(--y);transform:rotate(-3deg) translateY(-3px);box-shadow:3px 3px 0 var(--ink)}
+.hero{text-align:center;padding:48px 16px 40px;position:relative}
+.hero h1{font-family:Lalezar,Tajawal;font-size:clamp(34px,8vw,64px);margin:0;font-weight:400;line-height:1.3;animation:drop .9s cubic-bezier(.3,1.6,.5,1) both}
+.hero h1 mark{background:linear-gradient(transparent 55%,var(--y) 55%);padding:0 8px}
+.hero p{max-width:600px;margin:10px auto;font-size:18px;animation:drop .9s .2s both}
+@keyframes drop{from{opacity:0;transform:translateY(-40px) rotate(-3deg)}}
+.dd{position:absolute;animation:fl 5s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-14px) rotate(8deg)}}
+main{max-width:980px;margin:0 auto;padding:0 14px 50px}
+.card,section{background:#fff;border:3px solid var(--ink);border-radius:26px 8px 28px 10px/10px 28px 8px 26px;box-shadow:6px 6px 0 var(--ink);padding:22px;margin:30px 0}
+.rv{opacity:0;transform:translateY(40px) rotate(1deg);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+h2{font-family:Lalezar,Tajawal;font-weight:400;font-size:clamp(26px,5vw,36px);margin:0 0 10px}
+h2 b{display:inline-grid;place-items:center;width:48px;height:48px;border:3px solid var(--ink);border-radius:50% 40% 55% 45%;background:var(--c,var(--y));margin-left:10px;font-size:24px;transform:rotate(-6deg);animation:wig 3s ease-in-out infinite}
+@keyframes wig{50%{transform:rotate(7deg) scale(1.08)}}
+h3{font-family:Lalezar,Tajawal;font-weight:400;font-size:22px;margin:20px 0 8px;display:inline-block;background:linear-gradient(transparent 60%,var(--bl) 60%)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.note{border:2.5px solid var(--ink);border-radius:14px 4px 16px 6px;padding:12px 14px;background:var(--c,var(--y));transition:.3s}
+.note:hover{transform:rotate(-1.5deg) translateY(-6px);box-shadow:5px 5px 0 var(--ink)}
+button{font-family:inherit;cursor:pointer;border:2.5px solid var(--ink);border-radius:14px 5px 14px 5px;padding:6px 16px;font-weight:800;font-size:15px;background:#fff;color:var(--ink);box-shadow:3px 3px 0 var(--ink);transition:.15s}
+button:hover{background:var(--y);transform:translate(-2px,-2px) rotate(-2deg);box-shadow:5px 5px 0 var(--ink)}button:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.ok{background:var(--gr)!important;animation:pop .5s}.no{background:var(--pk)!important;animation:sh .4s}
+@keyframes pop{50%{transform:scale(1.12) rotate(-3deg)}}@keyframes sh{25%{transform:translateX(8px)}75%{transform:translateX(-8px)}}
+details{border:2.5px solid var(--ink);border-radius:14px 5px 16px 6px;margin:9px 0;background:#fff;transition:.3s}
+details[open]{background:#fffbe6;box-shadow:4px 4px 0 var(--ink)}
+summary{cursor:pointer;font-weight:800;padding:10px 14px;list-style:none}summary::before{content:"✏️ "}details[open] summary::before{content:"✅ "}
+details div{padding:0 16px 12px;animation:drop .4s both}
+.flip{perspective:900px;height:210px;cursor:pointer}.fi{position:relative;height:100%;transition:transform .7s;transform-style:preserve-3d}.flip.f .fi{transform:rotateY(180deg)}
+.fc,.fb{position:absolute;inset:0;border:3px solid var(--ink);border-radius:20px 6px 22px 8px;padding:16px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;text-align:center;box-shadow:5px 5px 0 var(--ink)}
+.fc{background:var(--pu);font-family:Lalezar;font-size:26px}.fb{background:var(--bl);transform:rotateY(180deg)}
+table{width:100%;border-collapse:collapse;margin:10px 0}td,th{border:2.5px solid var(--ink);padding:8px;text-align:center}th{background:var(--y)}
+.sheet{display:grid;grid-template-columns:34px repeat(6,1fr);gap:3px;direction:ltr;max-width:520px;margin:12px auto}
+.sheet div{border:2px solid var(--ink);text-align:center;padding:4px 0;font-size:13px;cursor:pointer;transition:.15s;border-radius:5px}
+.sheet .h{background:var(--bl);cursor:default}.sheet div:hover{background:var(--y)}.sheet .sel{background:var(--or);transform:scale(1.2) rotate(-4deg);font-weight:800;z-index:2}
+.big{font-family:Lalezar;font-size:30px;text-align:center;min-height:46px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:8px 0}
+input{font-family:inherit;font-size:16px;padding:6px;border-radius:10px;border:2.5px solid var(--ink);width:86px;text-align:center;background:#fff;color:var(--ink)}
+.bars{display:flex;align-items:flex-end;gap:8px;height:220px;padding:10px;border-bottom:3px solid var(--ink);border-right:3px solid var(--ink)}
+.bar{flex:1;border:2.5px solid var(--ink);border-radius:8px 8px 0 0;background:var(--bl);height:0;transition:height 1.2s cubic-bezier(.2,1.4,.4,1);position:relative;cursor:pointer}
+.bar:hover{transform:rotate(-2deg)}.bar i{position:absolute;top:-24px;width:100%;text-align:center;font-style:normal;font-weight:800;font-size:13px}
+.lab{display:flex;gap:8px;font-size:11px;text-align:center;padding:4px 10px}.lab span{flex:1}
+.step{display:flex;gap:12px;align-items:center;padding:8px 12px;border:2.5px dashed var(--ink);border-radius:14px;margin:8px 0;transition:.3s}.step:hover{transform:translateX(-8px) rotate(-.6deg);background:#fffbe6}
+.step b{font-family:Lalezar;font-weight:400;background:var(--pk);border:2.5px solid var(--ink);border-radius:50%;min-width:34px;height:34px;display:grid;place-items:center}
+.prog{height:16px;border:2.5px solid var(--ink);border-radius:10px;overflow:hidden}.prog i{display:block;height:100%;width:0;background:var(--gr);transition:width .6s}
+footer{text-align:center;padding:30px 10px;font-family:Lalezar;font-size:22px}
+@media (max-width:600px){section{padding:14px}}
+</style>
+</head>
+<body>
+<nav>
+<a href="#s1">علم البيانات</a><a href="#s2">الرقمنة</a><a href="#s3">الجداول</a><a href="#s4">أنواع البيانات</a><a href="#s5">الدوال</a><a href="#s6">الألوان والتحقق</a><a href="#s7">المخططات</a><a href="#s8">الخصوصية</a><a href="#s9">الاختبار</a>
+</nav>
+<header class="hero">
+<svg class="dd" style="top:20px;right:4%" width="70" height="70" viewBox="0 0 70 70" fill="none" stroke="#1c1c3a" stroke-width="3.5" stroke-linecap="round"><path d="M35 6l8 18 19 2-14 13 4 19-17-10-17 10 4-19L8 26l19-2z" fill="#ffd93d"/></svg>
+<svg class="dd" style="top:50px;left:5%;animation-delay:-2s" width="90" height="70" viewBox="0 0 90 70" fill="none" stroke="#1c1c3a" stroke-width="3.5" stroke-linecap="round"><rect x="8" y="38" width="16" height="26" fill="#86e3a3"/><rect x="34" y="18" width="16" height="46" fill="#7cc8ff"/><rect x="60" y="28" width="16" height="36" fill="#ff8fab"/></svg>
+<h1>📊 الوحدة الأولى<br><mark>علم البيانات</mark></h1>
+<p>مهارات رقمية – الصف العاشر. شرح كامل بالتفصيل مع أنشطة تفاعلية وأسئلة الكتاب والمراجعة والامتحان. اضغط على كل سؤال لترى إجابته ✏️</p>
+</header>
+<main>
+
+<section id="s1" class="rv"><h2><b>🧠</b>ما هو علم البيانات؟</h2>
+<div class="grid"><div class="note" style="--c:var(--y)"><b>العلم</b><br>دراسة وتحليل</div><div class="note" style="--c:var(--gr)"><b>البيانات</b><br>مادة خام</div></div>
+<p>علم البيانات مجال شامل يجمع بين الرياضيات والإحصاء وعلوم الحاسوب لاستخراج معلومات ومعارف مفيدة من كميات هائلة من البيانات الخام.</p>
+<h3>المكونات الأساسية</h3>
+<div class="grid"><div class="note" style="--c:var(--bl)"><b>الرياضيات والإحصاء</b><br>لفهم الأنماط وبناء النماذج الرياضية</div><div class="note" style="--c:var(--or)"><b>علوم الحاسوب والبرمجة</b><br>لكتابة الخوارزميات ومعالجة البيانات الضخمة</div><div class="note" style="--c:var(--pk)"><b>التعلم الآلي (Machine Learning)</b><br>للتنبؤ بالمستقبل واتخاذ قرارات ذكية بناءً على البيانات</div></div>
+<h3>أسئلة</h3><div id="q1"></div></section>
+
+<section id="s2" class="rv"><h2><b style="--c:var(--pu)">🔄</b>الرقمنة والتحول الرقمي</h2>
+<p>اضغط البطاقة لتقلبها 👇</p>
+<div class="grid">
+<div class="flip"><div class="fi"><div class="fc">الرقمنة<br><small>Digitization</small></div><div class="fb">تحويل المعلومات من الشكل التقليدي الورقي إلى الشكل الآلي الرقمي (0 و 1). مثال: كتابة الواجب على الحاسوب، حفظ ملف PDF، تحويل سجلات العلامات والحضور إلى ملف Excel. ليس إلا تحولاً إلى العالم الإلكتروني.</div></div></div>
+<div class="flip"><div class="fi"><div class="fc">التحول الرقمي<br><small>Digital Transformation</small></div><div class="fb">توظيف التقنيات الرقمية والبيانات في كافة المجالات ومستويات العمل، وتغيير شامل في استراتيجية العمل وثقافته لخلق قيمة جديدة. مثال: نظام يحلل مبيعات المقصف وينبه عند نقص المخزون تلقائياً.</div></div></div></div>
+<table><tr><th>وجه المقارنة</th><th>الرقمنة</th><th>التحول الرقمي</th></tr>
+<tr><td>التعريف</td><td>تحويل البيانات والملفات من شكل ورقي/أوفلاين إلى صيغة رقمية</td><td>إعادة هيكلة شاملة للعمليات والثقافة ونموذج العمل باستغلال التقنية</td></tr>
+<tr><td>التركيز</td><td>البيانات والملفات الفردية</td><td>المنظومة كاملة (الأفراد، العمليات، الاستراتيجية)</td></tr>
+<tr><td>الهدف</td><td>تحسين كفاءة حفظ البيانات وتسهيل الوصول</td><td>تقديم قيمة جديدة للعملاء وتحسين التجربة وبيئة مرنة</td></tr>
+<tr><td>مثال</td><td>تحويل المستندات الورقية إلى PDF أو مسحها ضوئياً</td><td>بنك تقليدي يتحول إلى منصة رقمية تفاعلية بخدمات فورية بالذكاء الاصطناعي</td></tr></table>
+<p><b>فوائد التحول الرقمي:</b> تطوير العمل، تحسين الخدمات، دعم اتخاذ القرار، توفير الوقت والجهد، رفع الكفاءة والجودة، تحقيق نتائج أفضل.</p>
+<h3>🎮 نشاط 3: رقمنة أم تحول رقمي؟</h3><div id="g1"></div>
+<h3>أسئلة</h3><div id="q2"></div></section>
+
+<section id="s3" class="rv"><h2><b style="--c:var(--gr)">🧮</b>الجداول الإلكترونية</h2>
+<p>أداة رقمية لتنظيم البيانات داخل صفوف وأعمدة، هدفها تسهيل إدخال البيانات ومعالجتها. البرنامج: مايكروسوفت إكسل.</p>
+<div class="grid"><div class="note" style="--c:var(--y)"><b>المصنف</b><br>الملف كاملاً</div><div class="note" style="--c:var(--bl)"><b>ورقة العمل</b><br>الصفحة داخل المصنف</div><div class="note" style="--c:var(--gr)"><b>الخلية</b><br>الوحدة الأساسية لإدخال البيانات</div></div>
+<ul><li><b>الصفوف:</b> المحاور الأفقية وتمثلها الأرقام على يمين المصنف.</li><li><b>الأعمدة:</b> المحاور العمودية وتمثلها الأحرف بالإنجليزية.</li><li><b>الخلية:</b> تقاطع العمود مع الصف، وتسمى بدلالة العمود ثم الصف (الحرف ثم الرقم) مثل D7، ولا يجوز أن يسبق الرقم الحرف.</li></ul>
+<div class="note" style="--c:#fff"><b>🎮 جرّب: اضغط أي خلية</b><div class="big" id="ref">—</div><div class="sheet" id="sheet"></div></div>
+<h3>التنقل بين الخلايا</h3>
+<div class="grid"><div class="note" style="--c:var(--or)">⌨️ مفتاح <b>Enter</b>: للتنقل عمودياً (من أعلى إلى أسفل والعكس صحيح)</div><div class="note" style="--c:var(--pk)">⌨️ مفتاح <b>Tab</b>: للتنقل أفقياً (من اليمين إلى اليسار والعكس صحيح)</div></div>
+<p>لوحة المفاتيح تتيح حرية التنقل أفقياً وعمودياً.</p>
+<h3>جدول مقصف طارق بن زياد</h3>
+<p>الأعمدة: <b>A</b> الصنف، <b>B</b> الكمية المشتراة، <b>C</b> الكمية المباعة، <b>D</b> سعر البيع بالدينار، <b>E</b> سعر التكلفة، <b>F</b> الإيراد اليومي. مرجع الخلية التي محتواها حليب <b>A7</b>، ومرجع الخلية 0.4 هو <b>E9</b>.</p>
+<h3>أسئلة</h3><div id="q3"></div></section>
+
+<section id="s4" class="rv"><h2><b style="--c:var(--or)">🏷️</b>أنواع البيانات</h2>
+<p>أنواعها: <b>نص (Text)</b>، <b>رقم (Number)</b>، <b>تاريخ/وقت (Date/Time)</b>، <b>منطقي (Boolean)</b> وله قيمتان فقط (نعم/لا، True/False).</p>
+<h3>🎮 صنّف الحقل <span id="tsc">(0/6)</span></h3><div id="g2"></div>
+<p class="note" style="--c:var(--y)">الرقم الوطني نص لأنه رقم تعريفي لا تُجرى عليه عمليات حسابية، ويحفظ الأصفار على اليسار إن وُجدت.</p>
+<h3>أسئلة</h3><div id="q4"></div></section>
+
+<section id="s5" class="rv"><h2><b style="--c:var(--bl)">⚙️</b>الدوال والصيغ</h2>
+<p>الدالة SUM أفضل من الجمع اليدوي لأنها تلقائية وسريعة وكفؤة، تقلل الأخطاء، وتحدّث النتائج أولاً بأول.</p>
+<div class="note" style="--c:#fff"><div class="row" id="nums"></div><div class="row" id="fb"></div><div class="big" id="fres">اختر دالة 👆</div></div>
+<h3>شرط IF</h3>
+<div class="note" style="--c:#fff"><div class="row"><code dir="ltr">=IF(F2&gt;=50,1,0)</code> قيمة F2: <input id="iff" type="number" value="50"></div><div class="big" id="ifr"></div></div>
+<h3>خطوات كتابة الصيغة</h3>
+<div class="step"><b>1</b>نكتب = ثم الدالة التي نحتاجها</div><div class="step"><b>2</b>نضغط Tab في الكيبورد</div><div class="step"><b>3</b>نحدد الخلايا ونغلق القوسين</div>
+<p>الإيراد = الكمية × السعر <code dir="ltr">=C2*D2</code> · الربح = <code dir="ltr">=F2-C2*E2</code></p>
+<h3>أسئلة</h3><div id="q5"></div></section>
+
+<section id="s6" class="rv"><h2><b style="--c:var(--pk)">🚦</b>الألوان والتحقق من الصحة</h2>
+<div class="note" style="--c:var(--or)"><b>صفر غيّر القرار:</b> أدخل موظف في مستشفى 150 عبوة بدلاً من 15 بإضافة صفر بالخطأ، فلم يرسل النظام تنبيهاً لتجديد الدواء، وكاد ينفد الدواء. الحل: التحقق من صحة البيانات لتقييد الإدخال، والتنسيق الشرطي لتنبيه الموظف فوراً. والمراجعة اليدوية وحدها لا تكفي لأنها مجهدة وبطيئة وتغفل الأخطاء الصغيرة.</div>
+<div class="grid" style="margin-top:14px"><div class="note" style="--c:var(--y)"><b>🟡 التنسيق الشرطي</b><br>ينبه بصرياً (تلوين الخلية) على بيانات موجودة بناءً على شروط، ولا يمنع الإدخال.</div><div class="note" style="--c:var(--pk)"><b>🔴 التحقق من الصحة</b><br>يمنع الخطأ لحظة الإدخال ويرفض القيمة أو يعرض رسالة تحذيرية.</div></div>
+<h3>تجربة التحقق (أرقام بين 1 و 100)</h3>
+<div class="note" style="--c:#fff"><div class="row"><input id="dv" placeholder="أدخل"><button onclick="dvT()">إدخال</button></div><div class="big" id="dvm"></div></div>
+<h3>تجربة التنسيق الشرطي (أحمر إذا أقل من 5، أخضر إذا 20 فأكثر)</h3>
+<div class="note" style="--c:#fff"><div class="row" id="cf"></div></div>
+<h3>الخطوات</h3>
+<div class="step"><b>1</b>التنسيق الشرطي: الشريط الرئيسي ← التنسيق الشرطي ← قواعد تمييز الخلايا</div>
+<div class="step"><b>2</b>التحقق: قائمة البيانات ← التحقق من صحة البيانات ← نحدد نوع البيانات</div>
+<p>عند الجمع بينهما: التحقق من صحة البيانات أولاً ثم التنسيق الشرطي. الفرق بين التنسيق العادي والشرطي: العادي ثابت يُطبق يدوياً ولا يتغير بتغير القيم، أما الشرطي فتفاعلي مرتبط بشرط ويتغير تلقائياً.</p>
+<h3>أسئلة</h3><div id="q6"></div></section>
+
+<section id="s7" class="rv"><h2><b style="--c:var(--gr)">📈</b>التمثيل البياني</h2>
+<p>التمثيل البياني يحول الأرقام الجافة إلى أشكال بصرية: مقارنة القيم بسرعة، تحديد الأعلى والأقل، ملاحظة الفروق، اكتشاف الأنماط والاتجاهات، وعرض النتائج بوضوح لدعم القرار.</p>
+<div class="bars" id="bars"></div><div class="lab" id="labs"></div>
+<p style="text-align:center">الأخضر: الأعلى مبيعاً (مياه معدنية 47)، الأحمر: الأقل (بسكويت 4)</p>
+<h3>اختر المخطط المناسب</h3><div id="g3"></div>
+<h3>خطوات إنشاء مخطط</h3>
+<div class="step"><b>1</b>حدد البيانات (الأعمدة والصفوف المراد تمثيلها)</div><div class="step"><b>2</b>من تبويب إدراج ← مخطط (Chart)</div><div class="step"><b>3</b>اختر النوع، مثل العمودي (Column Chart)</div><div class="step"><b>4</b>أضف العنوان وعناوين المحاور (من تبويب تخصيص)</div><div class="step"><b>5</b>لاحظ تحديث المخطط تلقائياً عند تغيير أي رقم</div>
+<h3>أسئلة</h3><div id="q7"></div></section>
+
+<section id="s8" class="rv"><h2><b style="--c:var(--pu)">🔒</b>الخصوصية والأمان</h2>
+<div class="grid"><div class="note" style="--c:var(--y)">🔑 <b>صلاحيات الوصول (Access Controls)</b><br>كل مستخدم له صلاحية حسب دوره، فلا يرى ولي الأمر إلا بيانات ابنه</div><div class="note" style="--c:var(--bl)">🛡️ <b>كلمة مرور وتشفير</b><br>لمنع الوصول غير المصرح به للملف</div><div class="note" style="--c:var(--pk)">🚫 <b>منع النشر العلني</b><br>حظر نشر قوائم الغياب والدرجات في مجموعات عامة</div></div>
+<p>أصحاب الصلاحية: إدارة المدرسة، مربي الصف، المرشد الطلابي، وولي الأمر (لبيانات ابنه فقط).</p>
+<h3>أسئلة</h3><div id="q8"></div></section>
+
+<section id="s9" class="rv"><h2><b style="--c:var(--or)">🏆</b>اختبر نفسك</h2>
+<div class="prog"><i id="qp"></i></div><div id="quiz"></div></section>
+</main>
+<footer>بالتوفيق في الامتحان! 🌟</footer>
+<script>
+var $=function(i){return document.getElementById(i)};
+function QA(id,a){var h="";a.forEach(function(x){h+="<details><summary>"+x[0]+"</summary><div>"+x[1]+"</div></details>"});$(id).innerHTML=h}
+try{var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);if(x.target.id=="s7")bars()}})},{threshold:.08});document.querySelectorAll(".rv").forEach(function(s){io.observe(s)})}catch(e){document.querySelectorAll(".rv").forEach(function(s){s.classList.add("in")});setTimeout(bars,300)}
+window.addEventListener("scroll",function(){var c="";document.querySelectorAll("main section").forEach(function(s){if(s.getBoundingClientRect().top<160)c=s.id});document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")=="#"+c)})});
+document.querySelectorAll(".flip").forEach(function(f){f.onclick=function(){f.classList.toggle("f")}});
+QA("q1",[["ما المشكلات التي سببتها البيانات غير المنظمة في القصة؟","تكرار الأسماء، ونقص أرقام الهواتف والتواصل، وصعوبة معرفة عدد المشاركين الفعليين في كل نشاط من الأنشطة المدرسية، مما أحدث فوضى وضياعاً للوقت."],["كيف يساعد الجدول الإلكتروني في حل هذه المشكلات؟","بفرز البيانات وتصنيفها في صفوف وأعمدة محددة، ومكافحة التكرار، والتحقق من صحة أرقام الهواتف، وتسهيل إجراء الحسابات وتوليد التقرير بدقة فائقة."],["ما الفرق بين البيانات والمعلومات؟","البيانات مادة خام مثل (49 – 50 – 90). المعلومات هي بيانات تحولت إلى شيء له معنى ودلالة، مثل: هذه معدلات الطلبة في مادة كذا."],["لماذا جدولة البيانات مهمة لأصحاب المؤسسات؟","لتنظيم البيانات وترتيبها وسهولة الوصول إليها خاصة مع الأعداد الكبيرة، ولإجراء الحسابات بأقل جهد ووقت وبشكل دقيق وآمن، ولدعم اتخاذ القرار والإجراءات السليمة."]]);
+QA("q2",[["لماذا يعد التحول الرقمي أوسع من الرقمنة؟","لأن الرقمنة مقتصرة على تحويل العمليات من يدوية إلى إلكترونية، وهي الخطوة الأولى والأساسية فقط ضمن العملية الأوسع والأشمل وهي التحول الرقمي، الذي يغير المنظومة كاملة ويوظف عملياً كل التقنيات."],["كيف تساعد الجداول الإلكترونية في تحقيق ذلك؟","من خلال الدعم الحقيقي والحفظ الفعلي للمحتوى بطريقة رقمية: الحفظ والتنظيم والترتيب للبيانات، والتحليل الرقمي واتخاذ القرار، والتشارك والتعاون السحابي."],["ما دور الجداول الإلكترونية في التحول الرقمي؟","حفظ البيانات وتنظيمها، معالجة البيانات وتحليلها، تحويل البيانات إلى معلومات، دعم اتخاذ القرار، تحسين العمل والأداء، وهي أداة أساسية للتحول الرقمي."],["ما أهمية التحول الرقمي في حياتنا اليومية؟ علل","بسبب تزايد كميات البيانات والحاجة إلى تنظيمها وتحليلها وجمعها بدقة. تحلو البيانات إلى معلومات تساعد في فهم الواقع واتخاذ القرارات الأفضل، وبذلك تحسن الخدمات وترفع كفاءة العمل."],["أي مما يلي مثال على التحول الرقمي لا الرقمنة فحسب؟","استخدام نظام يحلل مبيعات المقصف وينبه عند نقص المخزون تلقائياً."],["كيف تتحقق مبدئياً أن القيم مخزنة كأرقام وليس نصوصاً في إكسل؟","تظهر القيم بمحاذاة اليمين افتراضياً (عكس النص الذي يظهر باليسار)."]]);
+QA("q3",[["ما أهمية جدولة البيانات؟ وما الصيغة الصحيحة للإيراد اليومي لعصير المانجا؟","تنظيم البيانات وسهولة الوصول إليها. الصيغة: =C2*D2 (الكمية المباعة × سعر البيع)."],["كم صف في جدول طارق؟","الصفوف من 1 إلى 12، والفعلية (تضم الأصناف والبيانات الرقمية) من 2 إلى 10."],["لماذا تظهر قيمة في الخلية بمحاذاة اليسار بينما بقية الأرقام باليمين؟","غالباً أُدخلت كنص وليست رقماً، فلا تعمل عليها الدوال بشكل صحيح."],["كم عدد الخلايا في النطاق B2:B9؟ وفي D3:F6؟","B2:B9 = 8 خلايا. D3:F6 = 3 أعمدة × 4 صفوف = 12 خلية."]]);
+QA("q4",[["حدد البيانات غير المتسقة في عمود تاريخ الانتهاء (المقصف)","يوجد تواريخ بأرقام صريحة (18/2/2025)، وتواريخ بأشهر نصية (4 نيسان)، وعبارات نصية وصفية (سنة من تاريخ الإنتاج). فالقيم مختلطة بين أرقام منظمة للتاريخ ونصوص وصفية وأشهر حرفية."],["لماذا قد تسبب عبارة «سنة من تاريخ الإنتاج» مشكلة؟","لأن البرامج الحسابية مثل Excel تعامل النصوص كقيمة نصية، فلا تستطيع حساب الفروق الزمنية أو إضافة تنبيه تلقائي عند اقتراب انتهاء الصلاحية."],["الفرق بين البيانات في عمود الصنف وعمود سعر البيع؟","عمود الصنف بيانات نصية (Text)، وسعر البيع بيانات من نوع عملة (Currency) قابلة للحساب والعمليات الرياضية."],["العمود B يحتوي 500 دينار، 600، 700. ما الخطأ وكيف نصححه؟","الخطأ: كتابة «500 دينار» (دمج النص مع الرقم في خلية واحدة) يحول الخلية إلى نص (Text) ويمنع الاستفادة منها في الحسابات المالية. التصحيح: 1) إزالة كلمة «دينار» من داخل الخلايا وإبقاء الأرقام فقط. 2) تحديد نوع العملة (Currency) بضبط تنسيق خلايا العمود."],["لماذا يؤدي خلط أنواع البيانات داخل العمود إلى أخطاء؟ مثال","لأن البرنامج يتعامل مع العمود بناءً على نوع موحد للبيانات، وخلط النصوص بالأرقام يمنع الفرز الصحيح ويوقف الدوال الحسابية ويولد خطأ #VALUE!. مثال: صاحب معصرة زيتون يسجل (450كغم، 500، 600 كيلو) في عمود واحد، فيعجز البرنامج عن حساب مجموع زيتون الموسم ويتجاهل الخلايا المكتوبة بالنص."],["ما الذي يحدث إذا أدخلت قيمة نصية في عمود السعر؟","الدوال المرتبطة ستعطي خطأ أو تتجاهل الخلية، لأن البرمجيات تتطلب مدخلات رقمية صريحة."],["أي مما يلي بيانات رقمية في جدول المقصف؟","أسعار السلع وعدد القطع المباعة يومياً، لأنها كميات رقمية قابلة للحساب المالي والقياس الرياضي."],["جدول طلب الأصناف (حجم الطلب)","القاعدة: إذا كانت الكمية المباعة أقل من نصف المشتراة فالطلب منخفض، وإذا تساوت فمرتفع، وإلا فمتوسط. عصير مانجو: متوسط، كعك: متوسط، عصير برتقال: مرتفع، مياه معدنية: متوسط، حليب: منخفض، شوكولاتة: منخفض، بسكويت: منخفض، لبن: مرتفع."],["صنف: أ) نقاط الطالب ب) القرية ج) مستوى الرضا د) الحرارة هـ) اجتاز السنة و) تاريخ الامتحان","أ رقمية (كمية صحيحة تستخدم في الحساب). ب نصية. ج نصية (فئات وصفية). د رقمية (قابلة للزيادة والكسور). هـ منطقية (قيمتان فقط). و تاريخ (تحدد زمناً وتتيح حساب الفروق الزمنية)."]]);
+QA("q5",[["لماذا تُعد الدالة SUM أفضل من الجمع اليدوي؟","سهولة الجمع كونه تلقائياً، السرعة والكفاءة، تقليل الأخطاء بسبب الدقة، المرونة في العمل والتطوير المستمر، وتحديث النتائج أولاً بأول."],["ما ناتج AVERAGE وMAX-MIN وCOUNT على الأمثلة؟","القيم 250، 300، 275، 320، 355: المتوسط 300، والفرق بين أكبر وأصغر 105. COUNT تعد الخلايا الرقمية فقط (النطاق فيه 5 رقمية و3 نصية فالناتج 5)."],["لجمع الإيرادات في F2:F9 أي صيغة؟","=SUM(F2:F9)"],["الأجر اليومي للعامل 20 ديناراً مع مكافأة 30 إذا تجاوز 200 كغم، ما الصيغة؟","=20+IF(B2>200,30,0)"],["اختيار الصيغة المناسبة للتلوين","لتلوين C2 بالأحمر إذا كانت أقل من الحد الأدنى D2 نستخدم =C2<D2"]]);
+QA("q6",[["ما العلامة التي لفتت انتباهك؟ ولماذا؟ (جدول الطلاب)","علامة الرياضيات للطالب جميل (السطر 6) وهي (9). علاماته الأخرى مرتفعة (العلوم 99، التكنولوجيا 90) ومستويات الطلاب بين 85 و99، فهي غير معتادة، وقد تكون نسيان صفر لتصبح 90، فتتطلب ملاحظة وتحققاً قبل التصحيح."],["هل يبقى البحث اليدوي فعالاً مع آلاف القيم؟","لا، غير فعال لكثرة الوقت والجهد وعرضة للخطأ. الحل الأتمتة بالتنسيق الشرطي وقواعد التحقق، وكذلك المخططات التي تظهر القيم الشاذة."],["القيم الصالحة وغير الصالحة للكمية المشتراة: (-70، -40، 20، 100)","-70 و-40 غير صالحتين لأن الكميات لا تكون سالبة. 100 غير صالحة إذا تجاوزت السعة الاستيعابية. 20 هي الوحيدة الصالحة المنطقية."],["أصناف المقصف التي تحتاج متابعة","عصير برتقال ولبن: منتهية (المباع يساوي المشتريات)، بسكويت: ناقصة/نقص حرج. الألوان: أحمر للنقص الحرج، برتقالي لجديد الطلب، أخضر للمتوفر."],["حل دراسة الحالة (الكمية المتبقية E)","القاعدة الأولى: أحمر إذا أقل من 5. الثانية: أخضر إذا 20 فأكثر. المعادلة =B2-C2. E2 (3) و E5 (0) أحمر، E3 (20) أخضر، E4 (10) بلا لون. القرار: زيادة المشترى من بسكويت الشوفان والعصير الطبيعي لارتفاع الطلب ونفادهما، وتقليل شطيرة الجبنة لوجود فائض غير مباع. الخطأ: كتابة «شيكل 3» نصاً يحول D2 إلى نص ويعطل الحساب."],["نظام الحضور والغياب (10 طلاب)","الأعلى حضوراً: لينا ومريم (25 يوماً). الأقل: يوسف (18 يوماً). ينبه النظام بتنسيق شرطي إذا تجاوز الغياب 5 أيام، وتحقق ألا يكون سالباً أو أكثر من 30 يوماً، وقائمة منسدلة لحالة الطالب (منتظم/تحت المراقبة/بحاجة إلى تدخل) لتوحيد الإدخال."]]);
+QA("q7",[["ما فائدة المخطط عند عرض البيانات؟","تحويل الأرقام الجافة إلى أشكال بصرية واضحة تسهل قراءتها ومقارنتها وفهمها بسرعة ودقة."],["ما الصنف الأعلى مبيعاً والأقل؟ ولماذا أسهل بالرسم؟","الأعلى: مياه معدنية (47)، والأقل: بسكويت (4). الرسم يتيح للعين إدراك الفروق بلمحة وبدون قراءة الأرقام."],["كيف يساعد المخطط مسؤول المقصف؟","يزيد الكميات من الأصناف الرائجة (المياه والبرتقال) لضمان عدم النفاد، ويقلل أو يستبدل الأصناف ضعيفة الإقبال (بسكويت، شوكولاتة، حليب) لتجنب التراكم والتلف."],["الأنسب لمقارنة علامات الطلاب؟ درجات الحرارة؟ مصروف الأسرة؟","العمودي (Column) للمقارنة بين الفئات، الخطي (Line) للتغير عبر الزمن، الدائري (Pie) لتوزيع الأجزاء بالنسب المئوية."]]);
+QA("q8",[["هل البيانات محمية؟ ومن يملك الاطلاع عليها؟","محمية إذا أحيطت بالنظام الأمني المناسب، وتنحصر صلاحية الاطلاع على المخولين فنياً وإدارياً فقط."],["مناقشة نشر الأسماء والغياب على مجموعة واتساب عامة","تصرف ينتهك الخصوصية الرقمية والأخلاقية؛ الغياب والدرجات بيانات حساسة وتسبب حرجاً نفسياً واجتماعياً. البديل: بوابة eSchool أو إشعارات فردية لكل ولي أمر."],["ما البيانات التي لا ينبغي مشاركتها؟ ولماذا هي أخلاقية وتقنية؟","رقم الهاتف، رقم الهوية، معلومات البنك، كلمات المرور. أخلاقية للأمانة والاحترام وعدم الاستغلال، وتقنية للحماية من الاختراق والتسريبات والمسائلة القانونية."],["لماذا يجب المحافظة على خصوصية الهواتف والبيانات الشخصية؟","لأنها ملك لأصحابها، وحمايتها تقيهم وأسرهم من المخاطر الرقمية والاختراق والمضايقات، وتعد مطلباً أخلاقياً ووطنياً لترسيخ المواطنة الرقمية."]]);
+document.querySelectorAll("#sheet").forEach(function(s){var h="<div class=h></div>";"ABCDEF".split("").forEach(function(c){h+="<div class=h>"+c+"</div>"});for(var r=1;r<=6;r++){h+="<div class=h>"+r+"</div>";"ABCDEF".split("").forEach(function(c){h+="<div data-r='"+c+r+"'>"+c+r+"</div>"})}s.innerHTML=h;s.onclick=function(e){var d=e.target.dataset.r;if(!d)return;s.querySelectorAll(".sel").forEach(function(x){x.classList.remove("sel")});e.target.classList.add("sel");$("ref").textContent="الخلية: "+d}});
+function game(id,items,ty,cb){var g=$(id);items.forEach(function(it){var d=document.createElement("div");d.className="note";d.style.cssText="margin:8px 0;--c:#fff";var h="<b>"+it[0]+"</b><div class=row>";ty.forEach(function(x,i){h+="<button data-i='"+i+"'>"+x+"</button>"});d.innerHTML=h+"</div>";d.onclick=function(e){var b=e.target;if(b.tagName!="BUTTON"||d.done)return;d.done=1;if(+b.dataset.i==it[1]){b.className="ok";cb&&cb(1)}else{b.className="no";d.querySelectorAll("button")[it[1]].className="ok"}};g.appendChild(d)})}
+game("g1",[["محل يصور دفتر الديون ويحفظه PDF",0],["بقالة تستخدم جدولاً لحساب المخزون والنقص",0],["طالب يكتب الواجب على الحاسوب بدل الدفتر",0],["جمعية تعاونية توزع الطلبيات تلقائياً حسب المنطقة بنظام ذكي",1]],["رقمنة","تحول رقمي"]);
+var ts=0;game("g2",[["الرقم الوطني للطالب (405891234)",0],["سعر الوحدة بالشيكل (12.50)",1],["تاريخ استعارة الكتاب (2026/10/15)",2],["حالة تسليم الواجب (نعم / لا)",3],["مستوى الرضا (ممتاز / جيد)",0],["درجة الحرارة الخارجية",1]],["نص","رقم","تاريخ/وقت","منطقي"],function(){ts++;$("tsc").textContent="("+ts+"/6)"});
+game("g3",[["مقارنة علامات الطلاب في المواد الدراسية",0],["متابعة درجات الحرارة خلال أسبوع",1],["نسبة مصروف الأسرة على الطعام والسكن والمواصلات",2]],["عمودي","خطي","دائري"]);
+(function(){var n=$("nums");[250,300,275,320,355].forEach(function(x){var i=document.createElement("input");i.type="number";i.value=x;n.appendChild(i)});var fs={SUM:function(a){return a.reduce(function(p,c){return p+c},0)},AVERAGE:function(a){return fs.SUM(a)/a.length},MAX:function(a){return Math.max.apply(0,a)},MIN:function(a){return Math.min.apply(0,a)},COUNT:function(a){return a.length}};Object.keys(fs).forEach(function(k){var b=document.createElement("button");b.textContent=k;b.onclick=function(){var a=[].map.call(n.children,function(i){return +i.value||0}),r=fs[k](a);$("fres").textContent="="+k+"(B2:B6) → "+(r%1?r.toFixed(1):r)};$("fb").appendChild(b)});var f=$("iff");function u(){$("ifr").textContent=(+f.value>=50?"1 ✅":"0 ❌")}f.oninput=u;u()})();
+function dvT(){var x=$("dv").value,m=$("dvm"),ok=/^\d+$/.test(x)&&+x>=1&&+x<=100;m.textContent=ok?"✅ قيمة مقبولة":"⛔ قيمة غير صالحة! أدخل عدداً صحيحاً بين 1 و 100";m.style.animation="none";void m.offsetWidth;m.style.animation=ok?"pop .5s":"sh .4s"}
+(function(){var c=$("cf");[["عصير",3],["كعك",20],["ماء",10],["بسكويت",0]].forEach(function(p){var d=document.createElement("div");d.style.textAlign="center";var i=document.createElement("input");i.type="number";i.value=p[1];function u(){i.style.background=+i.value<5?"var(--pk)":+i.value>=20?"var(--gr)":"#fff"}i.oninput=u;u();d.innerHTML=p[0]+"<br>";d.appendChild(i);c.appendChild(d)})})();
+var done=0;function bars(){if(done)return;done=1;var d=[["مانجا",18],["كعك",24],["برتقال",40],["مياه",47],["حليب",8],["شوكولاتة",7],["بسكويت",4],["لبن",22]],b=$("bars");d.forEach(function(x){var e=document.createElement("div");e.className="bar";e.innerHTML="<i>"+x[1]+"</i>";if(x[1]==47)e.style.background="var(--gr)";if(x[1]==4)e.style.background="var(--pk)";b.appendChild(e);$("labs").innerHTML+="<span>"+x[0]+"</span>";setTimeout(function(){e.style.height=x[1]*3.9+"px"},100)})}
+(function(){var Q=[["تحويل سجلات الغياب من دفتر ورقي إلى إلكتروني يسمى:",["رقمنة فقط","تحولاً رقمياً","أرشفة ورقية"],0],["مرجع الخلية في العمود D والصف 7:",["7D","D7","D-7"],1],["كتابة السعر «شيكل 15» في خلية تسبب:",["تلوين أحمر","تعامل الخلية كنص وتعيق الحسابات","حذف الكلمة"],1],["أنسب نوع لتاريخ ميلاد الطالب:",["نص","تاريخ/وقت","منطقي"],1],["الهدف الرئيس من التنسيق الشرطي:",["منع القيم الخاطئة","تغيير تنسيق الخلايا تلقائياً عند تحقق شرط","الفرز الأبجدي"],1],["قاعدة أخضر لأكبر من 90 وعدلنا علامة من 85 إلى 94:",["تبقى بلا لون","تتلون بالأخضر تلقائياً","تظهر رسالة خطأ"],1],["=AVERAGE للقيم 250، 300، 275، 320، 355:",["300","275","355"],0],["=MAX-MIN لنفس القيم:",["50","95","105"],2],["=IF(B2>200,30,0) إذا B2=180:",["30","0","180"],1],["الربح =F2-C2*E2 حيث C2=18 وD2=2 وE2=1 وF2=C2*D2:",["16","18","36"],1],["مفتاح التنقل أفقياً بين الخلايا:",["Enter","Tab","Shift"],1],["نموذج يمنع إدخال عمر أكبر من 100 ويلون الفاتورة بالأحمر، الأدوات بالترتيب:",["تنسيق شرطي ثم تحقق","تحقق من الصحة ثم تنسيق شرطي","مخطط ثم فرز"],1]],i=0,s=0,z=$("quiz");function show(){$("qp").style.width=i/Q.length*100+"%";if(i>=Q.length){z.innerHTML="<div class=big>🎉 نتيجتك "+s+"/"+Q.length+"</div><div class=row><button onclick='location.reload()'>إعادة</button></div>";return}var q=Q[i],h="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,k){h+="<button style='display:block;width:100%;margin:8px 0;text-align:right' data-k='"+k+"'>"+o+"</button>"});z.innerHTML=h;z.onclick=function(e){var b=e.target;if(!b.dataset.k||z.l)return;z.l=1;var ok=+b.dataset.k==q[2];if(ok)s++;b.classList.add(ok?"ok":"no");if(!ok)z.querySelectorAll("button")[q[2]].classList.add("ok");setTimeout(function(){z.l=0;i++;show()},1100)}}show()})();
+</script>
+</body>
+</html>
